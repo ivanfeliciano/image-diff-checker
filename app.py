@@ -3,15 +3,11 @@ import cv2
 
 REF_POINTS = []
 def click_roi(event, x, y, flags, param):
-	global REF_POINTS, CLICKING, FRAME
-	CLICKING = False
+	global REF_POINTS
 	if event == cv2.EVENT_LBUTTONDOWN:
 		REF_POINTS.append((x, y))
-		CLICKING = True
- 
 	elif event == cv2.EVENT_LBUTTONUP:
 		REF_POINTS.append((x, y))
-		CLICKING = False
  
 cv2.namedWindow('frame', cv2.WINDOW_NORMAL)
 cap = cv2.VideoCapture(0)
