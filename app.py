@@ -1,15 +1,7 @@
 import numpy as np
 import cv2
 
-
-
-CLICKING = False
 REF_POINTS = []
-
-
-def compute_diff():
-	pass
-
 def click_roi(event, x, y, flags, param):
 	global REF_POINTS, CLICKING, FRAME
 	CLICKING = False
@@ -29,7 +21,6 @@ ret, prev_frame = cap.read()
 current_roi = []
 prev_roi = []
 while(True):
-	# Capture frame-by-frame
 	ret, frame = cap.read()
 	image_to_show = frame.copy()
 	coord_rois = []
@@ -55,7 +46,5 @@ while(True):
 	cv2.imshow('frame', image_to_show)
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break
-
-# When everything done, release the capture
 cap.release()
 cv2.destroyAllWindows()
